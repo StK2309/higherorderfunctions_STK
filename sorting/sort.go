@@ -1,6 +1,7 @@
 package sorting
 
 import (
+	"cmp"
 	"slices"
 )
 
@@ -33,11 +34,15 @@ type Person struct {
 // SortByAgeDescending sortiert die Liste nach dem Alter der Personen absteigend.
 // Die Funktion verwendet dafür die Funktion slices.Sort aus dem Paket slices.
 func SortByAgeDescending(list []Person) {
-	// TODO
+	slices.SortFunc(list, func(a, b Person) int {
+		return b.Age - a.Age
+	})
 }
 
 // SortByNameAscending sortiert die Liste nach dem Namen der Personen aufsteigend.
 // Die Funktion verwendet dafür die Funktion slices.SortFunc aus dem Paket slices.
 func SortByNameAscending(list []Person) {
-	// TODO
+	slices.SortFunc(list, func(a, b Person) int {
+		return cmp.Compare(a.Name, b.Name)
+	})
 }

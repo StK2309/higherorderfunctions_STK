@@ -25,13 +25,15 @@ func MapToString[T any](list []T) []string {
 // DoubleEach erwartet eine Liste von Zahlen.
 // DoubleEach verdoppelt alle Elemente der Liste und liefert eine neue Liste mit den Ergebnissen.
 func DoubleEach(list []int) []int {
-	// TODO
-	return []int{}
+	return MapFunction(list, func(v int) int {
+		return v * 2
+	})
 }
 
 // AppendToEach erwartet eine Liste von Strings und einen String s.
 // AppendToEach hängt s an alle Elemente der Liste an und liefert eine neue Liste mit den Ergebnissen.
 func AppendToEach(list []string, s string) []string {
-	// TODO
-	return []string{}
+	return MapFunction(list, func(v string) string {
+		return v + s
+	})
 }
